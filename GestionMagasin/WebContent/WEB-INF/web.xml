@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>magasin</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>IC</servlet-name>
+  	<servlet-class>mesCommandes.InscriptionClient</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	<servlet-name>IC</servlet-name>	
+	<url-pattern>/sinscrire</url-pattern>
+   </servlet-mapping>
+
+	<servlet>
+		<servlet-name>AD</servlet-name>
+		<servlet-class>mesCommandes.AfficherLesDisques</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AD</servlet-name>
+		<url-pattern>/achat</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CD</servlet-name>
+		<servlet-class>mesCommandes.CommanderUnDisque</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CD</servlet-name>
+		<url-pattern>/commande</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EC</servlet-name>
+		<servlet-class>mesCommandes.EnregistrerCommande</servlet-class>
+
+	<init-param>
+		<param-name>driver</param-name>
+		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+	</init-param>
+
+	<init-param>
+		<param-name>localisation</param-name>
+		<param-value>jdbc:mysql://localhost:3306/magasin</param-value>
+	</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EC</servlet-name>
+		<url-pattern>/enregistre</url-pattern>		
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>VP</servlet-name>
+		<servlet-class>mesCommandes.ViderPanier</servlet-class>	
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>V</servlet-name>
+		<url-pattern>/vider</url-pattern>
+	</servlet-mapping>
+</web-app>
